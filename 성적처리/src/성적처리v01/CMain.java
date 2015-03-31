@@ -5,13 +5,16 @@ import java.io.IOException;
 import view.CGangjwaView;
 import view.CGwamokView;
 import view.CLoginView;
+import view.CSugangsincungView;
 import DAOs.DAO;
 import control.CGangjwaControl;
 import control.CGwamokControl;
 import control.CLoginControl;
+import control.CSugangsincungControl;
 import entity.CGangjwa;
 import entity.CGwamok;
 import entity.CMember;
+import entity.CSugangsincung;
 
 
 public class CMain {
@@ -44,6 +47,17 @@ public class CMain {
 		DAO gangjwaDAO = new DAO() ; 
 		gangjwaDAO.write(gangjwa,"gangjwa");
 		gangjwa = (CGangjwa) gangjwaDAO.read("gangjwa");
+		
+		// 수강신청
+		
+		CSugangsincungView sugangsincungView = new CSugangsincungView();
+		CSugangsincung sugangsincung = sugangsincungView.getsugangsincung();
+		CSugangsincungControl sugangsincungControl = new CSugangsincungControl();
+		sugangsincung = sugangsincungControl.processSugangsincung(sugangsincung);
+		DAO sugangsincungDAO = new DAO() ; 
+		sugangsincungDAO.write(sugangsincung,"sugangsincung");
+		sugangsincung = (CSugangsincung) sugangsincungDAO.read("sugangsincung");
+
 	}
 }
 		
