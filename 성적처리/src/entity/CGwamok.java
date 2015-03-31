@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class CGwamok implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	// attrubutes
+	// Attributes
 	private int ID;
 	private String name;
 	private int hakjeom;
