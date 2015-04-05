@@ -7,10 +7,10 @@ import entity.CMember;
 
 public class CLoginView {
 	
-	public CMember login() {
+	public CEntity login() {
 		CEntity member = new CMember();
 		member.read();
-		return null;
+		return member;
 		
 	}
 

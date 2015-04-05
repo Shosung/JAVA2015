@@ -5,11 +5,11 @@ import entity.CGwamok;
 
 public class CGwamokView {
 
-	public CGwamok getGwamok() {
+	public CEntity getGwamok() {
 		// TODO Auto-generated method stub
 		CEntity gwamok = new CGwamok();
 		gwamok.read();
-		return null;
+		return gwamok;
 	}
 
 }

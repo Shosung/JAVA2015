@@ -5,12 +5,12 @@ import entity.CGangjwa;
 
 public class CGangjwaView {
 
-	public CGangjwa getGangjwa() {
+	public CEntity getGangjwa() {
 		// TODO Auto-generated method stub
 		CEntity gangjwa = new CGangjwa();
 		gangjwa.read();
 		
-		return null;
+		return gangjwa;
 		
 	}
 
