@@ -35,22 +35,27 @@ public class CMember extends CEntity{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		setUserID(this.userID);
-		setPassword(this.password);
+		setUserID(userID);
+		setPassword(password);
 	}
 
 	@Override
 	public void write(String fileName) {
 		try {
 			FileWriter out = new FileWriter("outmember.txt");
-			for(int i =0; getUserID()[i]!=null;i++){
-				String Sdata = this.userID[i];
-				out.write(Sdata+" ");
-				Sdata = this.password[i];
-				out.write(Sdata+"\n");
-				
+			
+			String[] userID = this.getUserID();
+			String[] password = this.getPassword();
+			String line = new String();
+			for(int i = 0; (line = userID[i]) != null; i++){
+				line = userID[i] + " ";
+				out.write(line);
+				line = password[i] + "\n";
+				out.write(line);
 			}
+			
 			out.close();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

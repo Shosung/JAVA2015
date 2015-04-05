@@ -25,25 +25,25 @@ public class CMain {
 		
 		// 로그인
 		CLoginView loginView = new CLoginView();
-		CMember member = loginView.login();
+		CMember member = (CMember) loginView.login();
 		CLoginControl loginControl = new CLoginControl();
 		member = loginControl.login(member);
-		IDAO memberDAO = new ObjectDAO();
+		IDAO memberDAO = new TextDAO();
 		memberDAO.write(member, "member");
 		member = (CMember) memberDAO.read("member");
 		
 		// 과목개설
 		CGwamokView gwamokView = new CGwamokView();
-		CGwamok gwamok = gwamokView.getGwamok();
+		CGwamok gwamok = (CGwamok) gwamokView.getGwamok();
 		CGwamokControl gwamokControl = new CGwamokControl();
 		gwamok = gwamokControl.processGwamok(gwamok);
-		IDAO gwamokDAO = new ObjectDAO() ; 
+		IDAO gwamokDAO = new TextDAO() ; 
 		gwamokDAO.write(gwamok, "gwamok");
 		gwamok = (CGwamok) gwamokDAO.read("gwamok");
 		
 		// 강좌개설
 		CGangjwaView gangjwaView = new CGangjwaView();
-		CGangjwa gangjwa = gangjwaView.getGangjwa();
+		CGangjwa gangjwa = (CGangjwa) gangjwaView.getGangjwa();
 		CGangjwaControl gangjwaControl = new CGangjwaControl();
 		gangjwa = gangjwaControl.processGangjwa(gangjwa);
 		IDAO gangjwaDAO = new TextDAO() ; 

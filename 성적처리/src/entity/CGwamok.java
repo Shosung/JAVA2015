@@ -30,7 +30,7 @@ public class CGwamok extends CEntity {
 		int[] hakjeom = new int[10];
 		String line;
 		try {
-			FileReader in = new FileReader("gangjwa.txt");
+			FileReader in = new FileReader("gwamok.txt");
 			BufferedReader bin = new BufferedReader(in);
 			
 			for(int i = 0; (line = bin.readLine())!=null;i++){
@@ -43,32 +43,36 @@ public class CGwamok extends CEntity {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		setID(this.ID);
-		setName(this.name);
-		setHakjeom(this.hakjeom);
+		setID(ID);
+		setName(name);
+		setHakjeom(hakjeom);
 	}
 
 	@Override
 	public void write(String fileName) {
 		try {
-			FileWriter out = new FileWriter("outgangjwa.txt");
-			for(int i =0; this.getID()[i]!=-1;i++){
-				int Idata = this.ID[i];
-				out.write(Idata+" ");
-				String Sdata = this.name[i];
-				out.write(Sdata+" ");
-				Idata = this.hakjeom[i];
-				out.write(Idata+" \n");
+			FileWriter out = new FileWriter("outgwamok.txt");
+			
+			int[] ID= this.getID();
+			String[] name = this.getName();
+			int[] hakjeom = this.getHakjeom();
+			String line = new String();
+			for(int i = 0; (line = name[i]) != null; i++){
+				line = ID[i] + " ";
+				out.write(line);
+				line = name[i] + " ";
+				out.write(line);
+				line = hakjeom[i] + "\n";
+				out.write(line);
 				
 			}
+			
 			out.close();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		// TODO Auto-generated method stub
-		
 	}
 
 	

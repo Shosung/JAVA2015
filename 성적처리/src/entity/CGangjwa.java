@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class CGangjwa extends CEntity{
 	private static final long serialVersionUID = 1L;
@@ -17,10 +18,12 @@ public class CGangjwa extends CEntity{
 	private int[] gwamokID;
 	
 	// setters & getters
-	public int[] getID() {return ID;}
-	public void setID(int[] iD2) {ID = iD2;}
+	
+	
 	public String[] getName() {return name;}
 	public void setName(String[] name) {this.name = name;}
+	public int[] getID() {return ID;}
+	public void setID(int[] iD) {ID = iD;}
 	public int[] getSuganginwon() {return suganginwon;}
 	public void setSuganginwon(int[] suganginwon) {this.suganginwon = suganginwon;}
 	public String[] getTimes() {return times;}
@@ -55,11 +58,11 @@ public class CGangjwa extends CEntity{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		setID(this.ID);
-		setName(this.name);
-		setGyosuID(this.gyosuID);
-		setSuganginwon(this.suganginwon);
-		setTimes(this.times);
+		setID(ID);
+		setName(name);
+		setGyosuID(gyosuID);
+		setSuganginwon(suganginwon);
+		setTimes(times);
 		
 	}
 	@Override
@@ -68,14 +71,26 @@ public class CGangjwa extends CEntity{
 		
 		try {
 			FileWriter out = new FileWriter("outgangjwa.txt");
-			BufferedWriter bout = new BufferedWriter(out);
 			
 			int[] ID= this.getID();
 			String[] name = this.getName();
 			int[] gyosuID = this.getGyosuID();
 			int[] suganginwon = this.getSuganginwon();
 			String[] times = this.getTimes();
-			
+			String line = new String();
+			for(int i = 0; (line = name[i]) != null; i++){
+				line = ID[i] + " ";
+				out.write(line);
+				line = name[i] + " ";
+				out.write(line);
+				line = gyosuID[i] + " ";
+				out.write(line);
+				line = suganginwon[i] + " ";
+				out.write(line);
+				line = times[i] + "\n";
+				out.write(line);
+				
+			}
 			
 			out.close();
 			
@@ -90,4 +105,5 @@ public class CGangjwa extends CEntity{
 	
 	
 }
+
 
