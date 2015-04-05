@@ -8,6 +8,7 @@ import view.CLoginView;
 import view.CSugangsincungView;
 import DAOs.IDAO;
 import DAOs.ObjectDAO;
+import DAOs.TextDAO;
 import control.CGangjwaControl;
 import control.CGwamokControl;
 import control.CLoginControl;
@@ -45,7 +46,7 @@ public class CMain {
 		CGangjwa gangjwa = gangjwaView.getGangjwa();
 		CGangjwaControl gangjwaControl = new CGangjwaControl();
 		gangjwa = gangjwaControl.processGangjwa(gangjwa);
-		IDAO gangjwaDAO = new ObjectDAO() ; 
+		IDAO gangjwaDAO = new TextDAO() ; 
 		gangjwaDAO.write(gangjwa,"gangjwa");
 		gangjwa = (CGangjwa) gangjwaDAO.read("gangjwa");
 		

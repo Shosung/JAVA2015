@@ -3,6 +3,6 @@ package entity;
 import java.io.Serializable;
 
 abstract public class CEntity implements Serializable{
-	abstract void read();
-	abstract void write();
+	public abstract void read();
+	public void write(String fileName){};
 }

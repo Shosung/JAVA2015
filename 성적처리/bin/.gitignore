@@ -1,5 +1,6 @@
-/DAOs/
-/control/
+/.gitignore
 /entity/
-/view/
 /성적처리v01/
+/DAOs/
+/gangjwa.txt
+/view/
