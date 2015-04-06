@@ -9,7 +9,7 @@ import entity.CEntity;
 public class TextDAO implements IDAO{
 	
 	@Override
-	public Object read(CEntity entity,String fileName) {
+	public CEntity read(CEntity entity,String fileName) {
 		try {
 			Scanner scanner = new Scanner(new File(fileName));
 			entity.read(scanner);

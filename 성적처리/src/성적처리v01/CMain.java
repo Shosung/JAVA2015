@@ -1,27 +1,28 @@
 package 己利贸府v01;
 
-import java.io.IOException;
-
 import view.CLoginView;
 import DAOs.IDAO;
-import DAOs.ObjectDAO;
+import DAOs.TextDAO;
 import control.CLoginControl;
-import entity.CMember;
 
 
 public class CMain {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args){
 		
-		// 肺弊牢
+		// create objects
 		CLoginView loginView = new CLoginView();
-		CMember member = (CMember) loginView.login();
 		CLoginControl loginControl = new CLoginControl();
-		member = loginControl.login(member);
-		IDAO memberDAO = new ObjectDAO();
-//		memberDAO.write(member, "member");
-//		CMember member = new CMember();
-		member = (CMember) memberDAO.read(member, "member.txt");
+		IDAO dao = new TextDAO();
+		
+		// associates
+		loginView.setControl(loginControl);
+		loginControl.setDao(dao);
+		
+		// start login
+		loginView.login();
+		
+
 
 
 	}
