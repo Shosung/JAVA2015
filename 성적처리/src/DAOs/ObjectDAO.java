@@ -5,9 +5,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
+import entity.CEntity;
+
 public class ObjectDAO implements IDAO {
 	
-	public Object read(String fileName) {
+	public Object read(CEntity entity,String fileName) {
 		Object object = null;
 		try {
 			ObjectInputStream in;

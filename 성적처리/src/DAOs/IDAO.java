@@ -1,6 +1,8 @@
 package DAOs;
 
+import entity.CEntity;
+
 public interface IDAO {
-	public Object read(String fileName);
+	public Object read(CEntity entity, String fileName);
 	public void write(Object object, String fileName);
 }

@@ -9,7 +9,7 @@ public class CLoginView {
 	
 	public CEntity login() {
 		CEntity member = new CMember();
-		member.read();
+		member.read(null);
 		return member;
 		
 	}
