@@ -1,8 +1,13 @@
 package DAOs;
 
+import java.io.FileNotFoundException;
+
 import entity.CEntity;
 
 public interface IDAO {
-	public CEntity read(CEntity entity, String fileName);
-	public void write(Object object, String fileName);
+	public void connect(String name) throws FileNotFoundException;
+	public void disconnect();
+	
+	public CEntity read();
+	public void write(CEntity entity);
 }

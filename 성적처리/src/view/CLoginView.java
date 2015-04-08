@@ -5,7 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-import entity.CMember;
+import control.CLoginControl;
+import entity.CLoginInfo;
 
 
 public class CLoginView extends CView {
@@ -15,7 +16,7 @@ public class CLoginView extends CView {
 		Scanner scanner = new Scanner(System.in);
 		
 		// input from key board using scanner
-		CMember member = new CMember();
+		CLoginInfo logininfo = new CLoginInfo();
 		String IDS;
 		String PasswordS;
 		String s;
@@ -55,7 +56,7 @@ public class CLoginView extends CView {
 		// close scanner
 		scanner.close();
 		
-		member = (CMember) this.getControl().process(member);
+		logininfo = (CLoginInfo) ((CLoginControl) this.getControl()).login(logininfo);
 
 	}
 
