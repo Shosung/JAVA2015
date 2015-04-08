@@ -1,4 +1,4 @@
-package 己利贸府v01;
+package main;
 
 import view.CLoginView;
 import DAOs.IDAO;
