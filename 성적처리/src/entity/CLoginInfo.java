@@ -11,13 +11,13 @@ public class CLoginInfo extends CEntity implements Serializable{
 	public static enum ELoginResult { succees, idError, passwordError, error };
 	private ELoginResult eLoginResult;
 
-	private String userID;
-	private String password;
+	private static String userID;
+	private static String password;
 	
 	// setters & getters
-	public String getUserID() {return userID;}
+	public static String getUserID() {return userID;}
 	public void setUserID(String userID) {this.userID = userID;}
-	public String getPassword() {return password;}
+	public static String getPassword() {return password;}
 	public void setPassword(String password) {this.password = password;}
 	public ELoginResult geteLoginResult() {return eLoginResult;}
 	public void seteLoginResult(ELoginResult eLoginResult) {this.eLoginResult = eLoginResult;}
