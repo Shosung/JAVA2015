@@ -1,36 +1,36 @@
 package control;
 
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.Scanner;
 
 import entity.CLoginInfo;
+import entity.CLoginInfo.ELoginResult;
 
 public class CLoginControl extends CControl {
 
 	public CLoginInfo login(CLoginInfo loginInfo) {
-	
+		CLoginInfo loginInfoDAO = new CLoginInfo();
 		try {
-			
-			Scanner scanner = new Scanner((Readable) this.getDao().connect("member.txt"));
-			while(true){
-				if(CLoginInfo.getUserID().equals(scanner.next())){
-					if(CLoginInfo.getPassword().equals(scanner.next())){
-						System.out.println("환영합니다.");
+			this.getDao().connect("member.txt");
+			while(loginInfo.geteLoginResult().equals(ELoginResult.error)){
+				if(loginInfoDAO.getUserID().equals(loginInfo.getUserID())){
+					if(loginInfoDAO.getPassword().equals(loginInfo.getPassword())){
+						loginInfo.seteLoginResult(ELoginResult.succees);
 						break;
-					}else{
-						System.out.println("비밀번호가 틀렸습니다.");
+					} else {
+						loginInfo.seteLoginResult(ELoginResult.passwordError);
 						break;
 					}
+				
 				}
+				
 			}
-			if(scanner.next()!= null){
-				System.out.println("존재하지 않는 ID입니다.");
-			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		return loginInfo;
 	}
 }

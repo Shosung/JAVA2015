@@ -19,13 +19,13 @@ public class CLoginView extends CView {
 		System.out.print("user password를 입력하시오. ");
 		logininfo.setPassword(scanner.next());
 		
-
+		
 		
 		// close scanner
 		
 		
 		logininfo = (CLoginInfo) ((CLoginControl) this.getControl()).login(logininfo);
-		
+		swich(loginInfo.)
 
 	}
 

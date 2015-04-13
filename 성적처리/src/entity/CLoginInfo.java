@@ -25,6 +25,9 @@ public class CLoginInfo extends CEntity implements Serializable{
 	public void read(Scanner scanner){
 		userID = scanner.next();
 		password = scanner.next();
+		swich(eLoginResult){
+			
+		}
 	};
 	public void write(){};
 //	@Override
