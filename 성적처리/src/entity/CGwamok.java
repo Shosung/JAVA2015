@@ -1,36 +1,36 @@
 package entity;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class CGwamok extends CEntity {
 	
 	private static final long serialVersionUID = 1L;
+	
 	// Attributes
-	private int ID;
+	private String ID1;
+	private String ID2;
 	private String name;
 	private int hakjeom;
 	
-	
 	// setters & getters
-	public int getID() {return ID;}
-	public void setID(int iD) {ID = iD;}
+	public String getID1() {return ID1;}
+	public void setID1(String iD1) {ID1 = iD1;}
+	public String getID2() {return ID2;}
+	public void setID2(String iD2) {ID2 = iD2;}
 	public String getName() {return name;}
 	public void setName(String name) {this.name = name;}
 	public int getHakjeom() {return hakjeom;}
 	public void setHakjeom(int hakjeom) {this.hakjeom = hakjeom;}
-	public static long getSerialversionuid() {return serialVersionUID;}
-	
 	@Override
 	public void read(Scanner scanner) {
+		// TODO Auto-generated method stub
+		name = scanner.next();
+		ID1 = scanner.next();
+		ID2 = scanner.next();
+	}
+	@Override
+	public void write(Scanner scanner) {
 		
 	}
-
-	@Override
-	public void write() {}
-
 	
 }

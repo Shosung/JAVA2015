@@ -1,15 +1,18 @@
 package view;
 
-import entity.CEntity;
-import entity.CGwamok;
+import java.util.Scanner;
 
-public class CGwamokView {
+import control.CGwamokControl;
+import entity.VGwamok;
+import entity.VUser;
 
-	public CEntity getGwamok() {
-		// TODO Auto-generated method stub
-		CEntity gwamok = new CGwamok();
-		gwamok.read(null);
-		return gwamok;
+public class CGwamokView extends CView {
+
+	public void getGwamok(VUser vUser) {
+		Scanner scanner = new Scanner(System.in);
+		VGwamok vGwamok = ((CGwamokControl) getControl()).login(vUser);
+		System.out.println(vGwamok.getID1()+ " " + vGwamok.getID2());
 	}
+
 
 }

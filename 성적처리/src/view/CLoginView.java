@@ -3,32 +3,30 @@ package view;
 import java.util.Scanner;
 
 import control.CLoginControl;
-import entity.CLoginInfo;
+import entity.VLogin;
+import entity.VUser;
 
-
-public class CLoginView extends CView {
+public class CLoginView extends CView{
 	
-	public void login() {
-		
+	public VUser login() {
 		Scanner scanner = new Scanner(System.in);
+		VLogin vLogin = new VLogin();
 		
-		// input from key board using scanner
-		CLoginInfo logininfo = new CLoginInfo();
-		System.out.print("user ID를 입력하시오. ");
-		logininfo.setUserID(scanner.next());
-		System.out.print("user password를 입력하시오. ");
-		logininfo.setPassword(scanner.next());
+		System.out.println("아이디를 입력하세요.");
+		vLogin.setUserID(scanner.next());
+		System.out.println("비밀번호를 입력하세요.");
+		vLogin.setPassword(scanner.next());
+		
+		VUser vUser = (VUser)
+				((CLoginControl) this.getControl() ).login(vLogin); // 강제 타입 캐스팅
+		
+		System.out.println("Login Result : " + vUser.geteLoginResult().toString());
 		
 		
 		
 		// close scanner
 		
-		
-		logininfo = (CLoginInfo) ((CLoginControl) this.getControl()).login(logininfo);
-		swich(loginInfo.)
-
+		return vUser;
 	}
 
-
-	
 }
